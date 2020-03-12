@@ -45,8 +45,8 @@
 											var queryStringData = {
 												response_type : 'token',
 												client_id : clientId,
-												//redirect_uri : 'https://localhost/heineken/email.html'
-												redirect_uri : 'https://leo-con.github.io/email/email.html'
+												redirect_uri : 'https://localhost/heineken/email.html'
+												//redirect_uri : 'https://leo-con.github.io/email/email.html'
 											}
 
 											setCookie("toAddress", getUrlVars()["email_contacto"] ,1 );
@@ -180,8 +180,8 @@
 
 						function setEmailBodySubject(ID)  {
 							let template = emailTemplates.find(o => o.id === ID);
-							//console.log('======  BuildEmailBody ======');
-							//console.log(VoiceInteractionID + "//" + Nombre  + "//" + Telefono);
+							console.log('======  BuildEmailBody ======');
+							console.log(VoiceInteractionID + "//" + Nombre  + "//" + Telefono + "//" + Motivo);
 							body=template.body;
 							subject=template.subject;
 
