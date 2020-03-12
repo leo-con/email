@@ -19,6 +19,7 @@
 					var token;
 
 //https://localhost/heineken/email.html?InteractionID=9999&Nombre=Leo&Telefono=5554433&email_quienbusca=leonel.contreras@genesys.com&Motivo=PERSONAL&email_contacto=test@test.com
+//https://leo-con.github.io/email/email.html?InteractionID=9999&Nombre=Leo&Telefono=5554433&email_quienbusca=leonel.contreras@genesys.com&Motivo=PERSONAL&email_contacto=test@test.com
 
 									if (window.location.hash) {
 											token = getParameterByName('access_token');
@@ -36,7 +37,7 @@
 											Status = getCookie("status")	;
 											Empresa = getCookie("Empresa")	;
 											Motivo = getCookie("Motivo")	;
-											console.log('toAddress(2)' + toAddress);
+											console.log('EmailContacto(2)' + EmailContacto);
 
 
 										} else {
@@ -44,22 +45,22 @@
 											var queryStringData = {
 												response_type : 'token',
 												client_id : clientId,
+												//redirect_uri : 'https://localhost/heineken/email.html'
 												redirect_uri : 'https://leo-con.github.io/email/email.html'
 											}
 
 											setCookie("toAddress", getUrlVars()["email_quienbusca"] ,1 );
-											//setCookie("toAddress", "leonel.contreras@genesys.com" ,1 );
+											setCookie("EmailContacto", getUrlVars()["email_contacto"] ,1 );
 											setCookie("InteractionID", getUrlVars()["InteractionID"] ,1 );
 											setCookie("Nombre", getUrlVars()["Nombre"] ,1 );
 											setCookie("Telefono", getUrlVars()["Telefono"] ,1 );
-											setCookie("EmailContacto", getUrlVars()["EmailContacto"] ,1 );
 											setCookie("proveedor", getUrlVars()["proveedor"] ,1 );
 											setCookie("foliosFacturas", getUrlVars()["foliosFacturas"] ,1 );
 											setCookie("status", getUrlVars()["status"] ,1 );
 											setCookie("Empresa", getUrlVars()["Empresa"] ,1 );
-											setCookie("Motivo", getUrlVars()["Motivo"] ,1 );
+											setCookie("Motivo", getUrlVars()["Motivo"] ,1 );  
 
-											//alert('email_quienbusca(1)' + getUrlVars()["email_quienbusca"]);
+											//alert('EmailContacto...(1)' + getUrlVars()["email_contacto"]);
 											window.location.replace('https://login.mypurecloud.com/oauth/authorize?' + $.param(queryStringData));
 										}
 
