@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Email Teste</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+		<style type="text/css"> 
+			#ErrorMessage {
+				  width: 50%;
+				  height: 30px;
+				  overflow: auto;
+				  white-space: nowrap;
+				  border-style: groove;
+			}
+			#bodyid{
+				background-color: rgb(11, 80, 50);
+			}
+		</style>
+
+	</head>
+
+<body id="bodyid">
+
+<div>
+	<button onclick="_enviarEmail()">Enviar Email</button>
+	<div id="ErrorMessage"></div>
+</div>
+    <script src="js/config.js"></script>
+    <script src="js/email.js"></script>
+</body>
+</html>
