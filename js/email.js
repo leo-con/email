@@ -18,8 +18,8 @@
 					var Motivo; 
 					var token;
 
-//https://localhost/heineken/email.html?InteractionID=9999&Nombre=Leo&Telefono=5554433&email_quienbusca=leonel.contreras@genesys.com&Motivo=PERSONAL&email_contacto=test@test.com
-//https://leo-con.github.io/email/email.html?InteractionID=9999&Nombre=Leo&Telefono=5554433&email_quienbusca=leonel.contreras@genesys.com&Motivo=PERSONAL&email_contacto=test@test.com
+//https://localhost/heineken/email.html?InteractionID=9999&Nombre=Leo&Telefono=5554433&email_quienllama=test@test.com&Motivo=PERSONAL&email_contacto=leonel.contreras@genesys.com
+//https://leo-con.github.io/email/email.html?InteractionID=9999&Nombre=Leo&Telefono=5554433&email_quienllama=test@test.com&Motivo=PERSONAL&email_contacto=leonel.contreras@genesys.com
 
 									if (window.location.hash) {
 											token = getParameterByName('access_token');
@@ -49,8 +49,8 @@
 												redirect_uri : 'https://leo-con.github.io/email/email.html'
 											}
 
-											setCookie("toAddress", getUrlVars()["email_quienbusca"] ,1 );
-											setCookie("EmailContacto", getUrlVars()["email_contacto"] ,1 );
+											setCookie("toAddress", getUrlVars()["email_contacto"] ,1 );
+											setCookie("EmailContacto", getUrlVars()["email_quienllama"] ,1 );
 											setCookie("InteractionID", getUrlVars()["InteractionID"] ,1 );
 											setCookie("Nombre", getUrlVars()["Nombre"] ,1 );
 											setCookie("Telefono", getUrlVars()["Telefono"] ,1 );
@@ -60,7 +60,7 @@
 											setCookie("Empresa", getUrlVars()["Empresa"] ,1 );
 											setCookie("Motivo", getUrlVars()["Motivo"] ,1 );  
 
-											//alert('EmailContacto...(1)' + getUrlVars()["email_contacto"]);
+											alert('email_quienllama, email_contacto(1)' + getUrlVars()["email_quienllama"] + '' + getUrlVars()["email_contacto"]);
 											window.location.replace('https://login.mypurecloud.com/oauth/authorize?' + $.param(queryStringData));
 										}
 
