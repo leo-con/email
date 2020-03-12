@@ -60,7 +60,7 @@
 											setCookie("Empresa", getUrlVars()["Empresa"] ,1 );
 											setCookie("Motivo", getUrlVars()["Motivo"] ,1 );  
 
-											alert('email_quienllama, email_contacto(1)' + getUrlVars()["email_quienllama"] + '' + getUrlVars()["email_contacto"]);
+											//alert('email_quienllama, email_contacto(1)' + getUrlVars()["email_quienllama"] + '' + getUrlVars()["email_contacto"]);
 											window.location.replace('https://login.mypurecloud.com/oauth/authorize?' + $.param(queryStringData));
 										}
 
