@@ -1,7 +1,9 @@
 					'use strict';
 
-					var clientId = '4e6bcbf6-a25f-4062-a137-69f1f4eb5b23';
-					var queueId = '8713517b-dd26-4946-9035-bf86d077b03f';
+					//Gabriel1 var clientId = '4e6bcbf6-a25f-4062-a137-69f1f4eb5b23';
+					//Gabriel1 var queueId = '8713517b-dd26-4946-9035-bf86d077b03f';
+					var clientId = 'a54b668f-eb52-46ea-b6f2-8be63a3d83c4';  // heineken
+					var queueId = '0537f9a4-7c75-47de-b16c-e7a2cae82b90';	// heineken
 					var toAddress;
 					var fromAddress = 'conmutadores.cpc@cuamoc.com';
 					var fromName = 'CPC Conmutador';
@@ -10,7 +12,7 @@
 					var VoiceInteractionID;
 					var Nombre;
 					var Telefono;
-					var EmailContacto;
+					var EmailQuienLlama;
 					var Proveedor;
 					var FoliosFacturas;
 					var Status;
@@ -31,13 +33,13 @@
 											VoiceInteractionID = getCookie("InteractionID")	;
 											Nombre = getCookie("Nombre")	;
 											Telefono = getCookie("Telefono")	;
-											EmailContacto = getCookie("EmailContacto")	;
+											EmailQuienLlama = getCookie("EmailQuienLlama")	;
 											Proveedor = getCookie("proveedor")	;
 											FoliosFacturas = getCookie("foliosFacturas")	;
 											Status = getCookie("status")	;
 											Empresa = getCookie("Empresa")	;
 											Motivo = getCookie("Motivo")	;
-											console.log('EmailContacto(2)' + EmailContacto);
+											console.log('emaill.js(2) :: email_quienllama, email_contacto, Motivo ========= :: ' + getUrlVars()["email_quienllama"] + ', ' + getUrlVars()["email_contacto"] + ',' + getUrlVars()["Motivo"]);
 
 
 										} else {
@@ -50,7 +52,7 @@
 											}
 
 											setCookie("toAddress", getUrlVars()["email_contacto"] ,1 );
-											setCookie("EmailContacto", getUrlVars()["email_quienllama"] ,1 );
+											setCookie("EmailQuienLlama", getUrlVars()["email_quienllama"] ,1 );
 											setCookie("InteractionID", getUrlVars()["InteractionID"] ,1 );
 											setCookie("Nombre", getUrlVars()["Nombre"] ,1 );
 											setCookie("Telefono", getUrlVars()["Telefono"] ,1 );
@@ -60,7 +62,7 @@
 											setCookie("Empresa", getUrlVars()["Empresa"] ,1 );
 											setCookie("Motivo", getUrlVars()["Motivo"] ,1 );  
 
-											alert('email_quienllama, email_contacto, Motivo(1)' + getUrlVars()["email_quienllama"] + ', ' + getUrlVars()["email_contacto"] + ',' + getUrlVars()["Motivo"]);
+											//console.log('emaill.js(1) :: email_quienllama, email_contacto, Motivo(1)' + getUrlVars()["email_quienllama"] + ', ' + getUrlVars()["email_contacto"] + ',' + getUrlVars()["Motivo"]);
 											window.location.replace('https://login.mypurecloud.com/oauth/authorize?' + $.param(queryStringData));
 										}
 
@@ -103,7 +105,7 @@
 
 								function _enviarEmail() {	
 								console.log("_enviarEmail :: inicio :: " + Motivo);	
-										setEmailBodySubject(Motivo);
+								setEmailBodySubject(Motivo);
 										var url = 'https://api.mypurecloud.com/api/v2/conversations/emails';
 										var requestData = {
 											"queueId": queueId,
@@ -179,22 +181,26 @@
 						}
 
 						function setEmailBodySubject(ID)  {
-							let template = emailTemplates.find(o => o.id === ID);
+							ID = ID.replace(/%20/g, "");
 							console.log('======  BuildEmailBody ======');
-							console.log(VoiceInteractionID + "//" + Nombre  + "//" + Telefono + "//" + Motivo);
+							console.log('BuildEmailBody ::: ' + VoiceInteractionID + "//" + Nombre  + "//" + Telefono + "//" + ID + '//' + EmailQuienLlama);
+							let template = emailTemplates.find(o => o.id === ID);
+							if (template == null){
+								$("#ErrorMessage").text('No hay una plantilla configurada para el motivo seleccionado. Comuniquese con su supervisor.');
+								let template = emailTemplates.find(o => o.id === 'PERSONAL');
+							}
 							body=template.body;
 							subject=template.subject;
 
 							body = body.toLowerCase().replace("{{nombre}}", Nombre);
 							body = body.toLowerCase().replace("{{telefono}}", Telefono);
 							body = body.toLowerCase().replace("{{voiceinteractionid}}", VoiceInteractionID);
-							body = body.toLowerCase().replace("{{email}}", EmailContacto);
+							body = body.toLowerCase().replace("{{email}}", EmailQuienLlama);
 							body = body.toLowerCase().replace("{{proveedor}}", Proveedor);
 							body = body.toLowerCase().replace("{{foliosfacturas}}", FoliosFacturas);
 							body = body.toLowerCase().replace("{{status}}", Status);
 							body = body.toLowerCase().replace("{{empresa}}", Empresa);
 							body = body.toLowerCase().replace("{{motivo}}", Motivo);
-
 					}
 
 
