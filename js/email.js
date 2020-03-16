@@ -19,10 +19,12 @@
 					var Empresa;
 					var Motivo; 
 					var token;
-
-//https://localhost/heineken/email.html?InteractionID=9999&Nombre=Leo&Telefono=5554433&email_quienllama=test@test.com&Motivo=PERSONAL&email_contacto=leonel.contreras@genesys.com
-//https://leo-con.github.io/email/email.html?InteractionID=9999&Nombre=Leo&Telefono=5554433&email_quienllama=test@test.com&Motivo=PERSONAL&email_contacto=leonel.contreras@genesys.com
-
+					var Numero_prov, Folios, Status_proveedores, Fecha_recep;
+					var Referencia_lab, Empresa, Vacante;
+/*
+https://localhost/heineken/email.html?InteractionID=InteractionID&Nombre=Nombre&Motivo=GASTOS_DE_VIAJE&Telefono=Telephone&email_quienllama=Callersemail&email_contacto=leonel.contreras@genesys.com&numero_prov=numero_proveedores&folios=folios&status_proveedores=status_proveedores&fecha_recep=fecha_recep&referencia_lab=referencia_lab&empresa=empresa&vacante=la_vacante
+https://leo-con.github.io/email/email.html?
+*/
 									if (window.location.hash) {
 											token = getParameterByName('access_token');
 											console.log('token******= ', token);
@@ -39,8 +41,14 @@
 											Status = getCookie("status")	;
 											Empresa = getCookie("Empresa")	;
 											Motivo = getCookie("Motivo")	;
-											console.log('emaill.js(2) :: email_quienllama, email_contacto, Motivo ========= :: ' + getUrlVars()["email_quienllama"] + ', ' + getUrlVars()["email_contacto"] + ',' + getUrlVars()["Motivo"]);
-
+											Numero_prov = getCookie("numero_prov")	;
+											Folios = getCookie("folios")	;
+											Status_proveedores = getCookie("status_proveedores")	;
+											Fecha_recep = getCookie("fecha_recep")	;
+											Referencia_lab = getCookie("referencia_lab")	;
+											Empresa= getCookie("empresa")	;
+											Vacante = getCookie("vacante")	;
+											console.log('emaill.js(2) :: Email_quienllama, email_contacto, Motivo ========= :: ' + toAddress + ', ' + EmailQuienLlama + ',' + Motivo);
 
 										} else {
 
@@ -61,6 +69,13 @@
 											setCookie("status", getUrlVars()["status"] ,1 );
 											setCookie("Empresa", getUrlVars()["Empresa"] ,1 );
 											setCookie("Motivo", getUrlVars()["Motivo"] ,1 );  
+											setCookie("numero_prov", getUrlVars()["numero_prov"] ,1 );  
+											setCookie("folios", getUrlVars()["folios"] ,1 );  
+											setCookie("status_proveedores", getUrlVars()["status_proveedores"] ,1 );  
+											setCookie("fecha_recep", getUrlVars()["fecha_recep"] ,1 );  
+											setCookie("referencia_lab", getUrlVars()["referencia_lab"] ,1 );  
+											setCookie("empresa", getUrlVars()["empresa"] ,1 );  
+											setCookie("vacante", getUrlVars()["vacante"] ,1 );  
 
 											//console.log('emaill.js(1) :: email_quienllama, email_contacto, Motivo(1)' + getUrlVars()["email_quienllama"] + ', ' + getUrlVars()["email_contacto"] + ',' + getUrlVars()["Motivo"]);
 											window.location.replace('https://login.mypurecloud.com/oauth/authorize?' + $.param(queryStringData));
@@ -201,6 +216,13 @@
 							body = body.toLowerCase().replace("{{status}}", Status);
 							body = body.toLowerCase().replace("{{empresa}}", Empresa);
 							body = body.toLowerCase().replace("{{motivo}}", Motivo);
+							body = body.toLowerCase().replace("{{numero_prov}}", Numero_prov);
+							body = body.toLowerCase().replace("{{folios}}", Folios);
+							body = body.toLowerCase().replace("{{status_proveedores}}", Status_proveedores);
+							body = body.toLowerCase().replace("{{fecha_recep}}", Fecha_recep);
+							body = body.toLowerCase().replace("{{referencia_lab}}", Referencia_lab);
+							body = body.toLowerCase().replace("{{empresa}}", Empresa);
+							body = body.toLowerCase().replace("{{vacante}}", Vacante);
 					}
 
 
