@@ -22,7 +22,7 @@
 					var Numero_prov, Folios, Status_proveedores, Fecha_recep;
 					var Referencia_lab, Empresa, Vacante;
 /*
-https://localhost/heineken/email.html?InteractionID=InteractionID&Nombre=Nombre&Motivo=GASTOS_DE_VIAJE&Telefono=Telephone&email_quienllama=Callersemail&email_contacto=leonel.contreras@genesys.com&numero_prov=numero_proveedores&folios=folios&status_proveedores=status_proveedores&fecha_recep=fecha_recep&referencia_lab=referencia_lab&empresa=empresa&vacante=la_vacante
+https://localhost/heineken/email.html?InteractionID=InteractionID&Nombre=Nombre&Motivo=GASTOS_VIAJES&Telefono=Telephone&email_quienllama=Callersemail&email_contacto=leonel.contreras@genesys.com&numero_prov=numero_proveedores&folios=folios&status_proveedores=status_proveedores&fecha_recep=fecha_recep&referencia_lab=referencia_lab&empresa=empresa&vacante=la_vacante
 https://leo-con.github.io/email/email.html?
 */
 									if (window.location.hash) {
@@ -207,22 +207,22 @@ https://leo-con.github.io/email/email.html?
 							body=template.body;
 							subject=template.subject;
 
-							body = body.toLowerCase().replace("{{nombre}}", Nombre);
-							body = body.toLowerCase().replace("{{telefono}}", Telefono);
-							body = body.toLowerCase().replace("{{voiceinteractionid}}", VoiceInteractionID);
-							body = body.toLowerCase().replace("{{email}}", EmailQuienLlama);
-							body = body.toLowerCase().replace("{{proveedor}}", Proveedor);
-							body = body.toLowerCase().replace("{{foliosfacturas}}", FoliosFacturas);
-							body = body.toLowerCase().replace("{{status}}", Status);
-							body = body.toLowerCase().replace("{{empresa}}", Empresa);
-							body = body.toLowerCase().replace("{{motivo}}", Motivo);
-							body = body.toLowerCase().replace("{{numero_prov}}", Numero_prov);
-							body = body.toLowerCase().replace("{{folios}}", Folios);
-							body = body.toLowerCase().replace("{{status_proveedores}}", Status_proveedores);
-							body = body.toLowerCase().replace("{{fecha_recep}}", Fecha_recep);
-							body = body.toLowerCase().replace("{{referencia_lab}}", Referencia_lab);
-							body = body.toLowerCase().replace("{{empresa}}", Empresa);
-							body = body.toLowerCase().replace("{{vacante}}", Vacante);
+							body = body.replace("{{nombre}}", Nombre.replace("%20"," "));
+							body = body.replace("{{telefono}}", Telefono.replace("%20"," "));
+							body = body.replace("{{voiceinteractionid}}", VoiceInteractionID.replace("%20"," "));
+							body = body.replace("{{email}}", EmailQuienLlama.replace("%20"," "));
+							body = body.replace("{{proveedor}}", Proveedor.replace("%20"," "));
+							body = body.replace("{{foliosfacturas}}", FoliosFacturas.replace("%20"," "));
+							body = body.replace("{{status}}", Status.replace("%20"," "));
+							body = body.replace("{{empresa}}", Empresa.replace("%20"," "));
+							body = body.replace("{{motivo}}", Motivo.replace("%20"," "));
+							body = body.replace("{{numero_prov}}", Numero_prov.replace("%20"," "));
+							body = body.replace("{{folios}}", Folios.replace("%20"," "));
+							body = body.replace("{{status_proveedores}}", Status_proveedores.replace("%20"," "));
+							body = body.replace("{{fecha_recep}}", Fecha_recep.replace("%20"," "));
+							body = body.replace("{{referencia_lab}}", Referencia_lab.replace("%20"," "));
+							body = body.replace("{{empresa}}", Empresa.replace("%20"," "));
+							body = body.replace("{{vacante}}", Vacante.replace("%20"," "));
 					}
 
 
