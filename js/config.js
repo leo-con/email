@@ -20,7 +20,7 @@ Favor De Comunicarse Lo Más Pronto Posible Al:<br>
 Teléfono: {{telefono}}<br>
 O Al Email {{email}} <br>
 ConversationID: {{voiceinteractionid}} <br>
-` + html_parte2; 
+` + html_parte2;
 
 
 var Gastos_De_Viaje_body = html_parte1 + `
@@ -62,11 +62,11 @@ ConversationID: {{voiceinteractionid}} <br>
 
 
 var emailTemplates = [
-    { id:"PERSONAL_LABORAL", subject:"Personal / Laboral", body: Personal_Laboral_body},
-    { id:"COTIZAR_EVENTO", subject:"Cotizar Evento", body: Cotizar_Evento_body },
-    { id:"PORTAL_PROVEEDORES", subject:"Proveedores", body: Proveedores_body},
-    { id:"VACANTE", subject:"Personal / Laboral", body: Vacantes_body},
-    { id:"REFERENCIA_LABORAL", subject:"Referencias Laborales", body: Referencias_Laborales_body },
-    { id:"GASTOS_VIAJES", subject:"Gastos De Viaje", body: Gastos_De_Viaje_body }
+    { id: "PERSONAL_LABORAL", subject: "Personal / Laboral", body: Personal_Laboral_body },
+    { id: "COTIZAR_EVENTO", subject: "Cotizar Evento", body: Cotizar_Evento_body },
+    { id: "PORTAL_PROVEEDORES", subject: "Proveedores", body: Proveedores_body },
+    { id: "VACANTE", subject: "Personal / Laboral", body: Vacantes_body },
+    { id: "REFERENCIA_LABORAL", subject: "Referencias Laborales", body: Referencias_Laborales_body },
+    { id: "GASTOS_VIAJES", subject: "Gastos De Viaje", body: Gastos_De_Viaje_body }
 ];
 
