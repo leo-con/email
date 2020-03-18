@@ -1,9 +1,5 @@
 'use strict';
 
-//Gabriel1 var clientId = '4e6bcbf6-a25f-4062-a137-69f1f4eb5b23';
-//Gabriel1 var queueId = '8713517b-dd26-4946-9035-bf86d077b03f';
-var clientId = 'a54b668f-eb52-46ea-b6f2-8be63a3d83c4';  // heineken
-var queueId = '0537f9a4-7c75-47de-b16c-e7a2cae82b90';	// heineken
 var toAddress;
 var fromAddress = 'conmutadores.cpc@cuamoc.com';
 var fromName = 'CPC Conmutador';
@@ -34,6 +30,7 @@ if (window.location.hash) {
 	location.hash = '';
 
 	toAddress = getCookie("toAddress");
+	toAddress = toAddress.replace("%20", " ")
 	VoiceInteractionID = getCookie("InteractionID");
 	Nombre = getCookie("Nombre");
 	Telefono = getCookie("Telefono");
@@ -58,7 +55,7 @@ if (window.location.hash) {
 	var queryStringData = {
 		response_type: 'token',
 		client_id: clientId,
-		redirect_uri: 'https://localhost/heineken/email.html'
+		redirect_uri: RedirectURL
 		//redirect_uri : 'https://leo-con.github.io/email/email.html'
 	}
 

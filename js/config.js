@@ -70,3 +70,6 @@ var emailTemplates = [
     { id: "GASTOS_VIAJES", subject: "Gastos De Viaje", body: Gastos_De_Viaje_body }
 ];
 
+var clientId = 'a54b668f-eb52-46ea-b6f2-8be63a3d83c4';
+var queueId = 'e866e0f0-5f57-4e4a-b4a5-6bf7ca28a26c';
+var RedirectURL = 'https://localhost/heineken/email.html';
