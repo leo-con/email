@@ -58,8 +58,8 @@ if (window.location.hash) {
 	var queryStringData = {
 		response_type: 'token',
 		client_id: clientId,
-		redirect_uri: 'https://localhost/heineken/email.html'
-		//redirect_uri : 'https://leo-con.github.io/email/email.html'
+		//redirect_uri: 'https://localhost/heineken/email.html'
+		redirect_uri : 'https://leo-con.github.io/email/email.html'
 	}
 
 	setCookie("toAddress", getUrlVars()["email_contacto"], 1);
